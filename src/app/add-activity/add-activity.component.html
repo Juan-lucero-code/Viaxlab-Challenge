@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Add Activity</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Title" [(ngModel)]="data.title" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Type" [(ngModel)]="data.type" />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="startDatePicker"
+      placeholder="Start Date"
+      [(ngModel)]="data.startDate"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="startDatePicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="endDatePicker"
+      placeholder="End Date"
+      [(ngModel)]="data.endDate"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="endDatePicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker></mat-datepicker>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button
+    class="mat-primary"
+    mat-button
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
+    Save
+  </button>
+</div>
